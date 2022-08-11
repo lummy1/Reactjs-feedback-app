@@ -11,25 +11,34 @@ function FeedbackList() {
       return   <div className=""> No feedback yet</div>
     }
     
+  // return (
+  //   <div className="feedback-list">
+  //         <AnimatePresence>
+  //       {feedback.map((item)=>(
+  //           <motion.div 
+  //           key={item.text}
+  //           initial={{opacity:0}}
+  //           animate={{opacity:1}}
+  //           exit= {{opacity:0}}
+  //           layout
+  //           >
+  //           <FeedbackItem  
+  //           key={item.id} 
+  //           item={item} 
+  //           />
+  //           </motion.div>
+  //       ))}
+  //         </AnimatePresence>
+  //   </div>
+  // )
+
   return (
-    <div className="feedback-list">
-          {/* <AnimatePresence> */}
-        {feedback.map((item)=>(
-            // <motion.div 
-            // key={item.text}
-            // initial={{opacity:0}}
-            // animate={{opacity:1}}
-            // exit= {{opacity:0}}
-            // >
-            <FeedbackItem  
-            key={item.id} 
-            item={item} 
-            />
-            // </motion.div>
+      <div className='feedback-list'>
+        {feedback.map((item) => (
+          <FeedbackItem key={item.id} item={item} />
         ))}
-          {/* </AnimatePresence> */}
-    </div>
-  )
+      </div>
+    )
 }
 
 
