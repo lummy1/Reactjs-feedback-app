@@ -42,9 +42,11 @@ export const FeedbackProvider = ({children})=> {
         //console.log(id, updItem)
         
         setFeedback(
-            feedback.map((item)=> item.id=== id ? {...item , ...updItem} : {item} 
+            feedback.map((item)=> item.id=== id ? updItem : item 
             ))
     }
+
+    //setFeedback(feedback.map((item) => (item.id === id ? data : item)))
     // delete feedback
     const deleteFeedback=(id)=>{
 
