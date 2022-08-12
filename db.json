@@ -9,6 +9,11 @@
       "text": "just checking",
       "rating": 8,
       "id": 6
+    },
+    {
+      "text": "next test for max",
+      "rating": 3,
+      "id": 7
     }
   ]
 }
