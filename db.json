@@ -14,6 +14,11 @@
       "text": "next test for max",
       "rating": 3,
       "id": 7
+    },
+    {
+      "text": "another tester",
+      "rating": 4,
+      "id": 8
     }
   ]
 }
