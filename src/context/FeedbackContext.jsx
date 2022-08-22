@@ -128,6 +128,7 @@ export const FeedbackProvider = ({children})=> {
         feedback, 
         feedbackEdit,
         isLoading,
+        fetchFeedback,
         deleteFeedback,
         addFeedback, 
         editFeedback,
