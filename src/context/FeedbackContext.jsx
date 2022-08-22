@@ -7,7 +7,16 @@ const FeedbackContext= createContext()
 export const FeedbackProvider = ({children})=> {
 
     const [isLoading,setisLoading] = useState(true)
-    const [feedback, setFeedback] = useState([])
+    //@lummy - when using server file
+    //const [feedback, setFeedback] = useState([])
+
+     //@lummy -  using local file
+
+    const [feedback, setFeedback] = useState([{
+        "text": "lummy default text",
+        "rating": 8,
+        "id": 4
+      }])
 
     useEffect(()=>{
         fetchFeedback()
@@ -23,10 +32,11 @@ export const FeedbackProvider = ({children})=> {
 
     const fetchFeedback= async ()=>{
 
-       const response= await fetch(`/feedback?_sort=id&_order=desc`)
-       const data = await response.json()
-        console.log(data)
-        setFeedback(data)
+    //    const response= await fetch(`/feedback?_sort=id&_order=desc`)
+    //    const data = await response.json()
+
+    //     console.log(data)
+        setFeedback(feedback)
         setisLoading(false)
 
 
@@ -34,55 +44,70 @@ export const FeedbackProvider = ({children})=> {
     //add feedback
     const addFeedback=  async (newFeedback)=> {
 
-       const response= await fetch('/feedback', {
-            method: 'POST', 
-            headers:{
-                'Content-Type': 'application/json' 
-            },
-            body: JSON.stringify(newFeedback)
-        })
+         //@lummy -using server file -db.json
+    //    const response= await fetch('/feedback', {
+    //         method: 'POST', 
+    //         headers:{
+    //             'Content-Type': 'application/json' 
+    //         },
+    //         body: JSON.stringify(newFeedback)
+    //     })
         
-        const data= await response.json()
+    //     const data= await response.json()
         
-        console.log(data)
-        setFeedback([data, ...feedback])
+    //     console.log(data)
+        //setFeedback([data, ...feedback])
+
+        //@lummy -using local file
+        setFeedback([newFeedback, ...feedback])
        
     }
 
     //update feedback Item
     const updateFeedback= async (id, updItem)=> {
        
-        const response = await fetch(`/feedback/${id}`,{
-        method: 'PUT',
-        headers:{
-            'Content-Type': 'application/json' 
-        },
-        body: JSON.stringify(updItem)
-    })
-        const data= await response.json()
-        console.log(data)
+        //@lummy -using server file -db.json
+    //     const response = await fetch(`/feedback/${id}`,{
+    //     method: 'PUT',
+    //     headers:{
+    //         'Content-Type': 'application/json' 
+    //     },
+    //     body: JSON.stringify(updItem)
+    // })
+    //     const data= await response.json()
+    //     console.log(data)
 
         
-        setFeedback(
-            feedback.map((item)=> item.id=== id ? data : item 
-            ))
+    //     setFeedback(
+    //         feedback.map((item)=> item.id=== id ? data : item 
+    //         ))
+
+
+    //@lummy -using local file
+         setFeedback(
+                feedback.map((item)=> item.id=== id ? feedback : item 
+                 ))
     }
 
-    //setFeedback(feedback.map((item) => (item.id === id ? data : item)))
+   
     // delete feedback
     const deleteFeedback= async (id) =>{
 
         if(window.confirm('Are you sure you want to delete?')){
 
-            await fetch(`/feedback/${id}`, {
+             //@lummy -using server file -db.json
+            // await fetch(`/feedback/${id}`, {
 
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+            //     method: 'DELETE',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
                 
-            })
+            // })
             
+            // setFeedback(feedback.filter((item)=> item.id!== id))
+
+             //@lummy -using local file
             setFeedback(feedback.filter((item)=> item.id!== id))
         }
         
