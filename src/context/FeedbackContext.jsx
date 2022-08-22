@@ -1,5 +1,5 @@
 
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 
 const FeedbackContext= createContext()
@@ -18,10 +18,10 @@ export const FeedbackProvider = ({children})=> {
         "id": 4
       }])
 
-    useEffect(()=>{
-        fetchFeedback()
+    // useEffect(()=>{
+    //     fetchFeedback()
 
-    },[])
+    // },[])
 
     const [feedbackEdit, setFeedbackEdit]= useState({
         item: {},
