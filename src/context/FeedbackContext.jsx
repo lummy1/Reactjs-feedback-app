@@ -1,5 +1,5 @@
 
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 
 const FeedbackContext= createContext()
@@ -13,15 +13,14 @@ export const FeedbackProvider = ({children})=> {
      //@lummy -  using local file
 
     const [feedback, setFeedback] = useState([{
-        "text": "lummy default text",
+        "text": "lummax new text updated",
         "rating": 8,
         "id": 4
       }])
 
-    // useEffect(()=>{
-    //     fetchFeedback()
-
-    // },[])
+    useEffect(()=>{
+        fetchFeedback()
+    })
 
     const [feedbackEdit, setFeedbackEdit]= useState({
         item: {},
