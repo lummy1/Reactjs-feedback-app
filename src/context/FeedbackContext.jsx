@@ -25,7 +25,7 @@ export const FeedbackProvider = ({children})=> {
 
        const response= await fetch(`/feedback?_sort=id&_order=desc`)
        const data = await response.json()
-        //console.log(data)
+        console.log(data)
         setFeedback(data)
         setisLoading(false)
 
